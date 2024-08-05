@@ -3,15 +3,11 @@ plugins {
     id 'maven-publish'
 }
 
-
 android {
-    namespace 'com.samruddhi2503'
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
-        targetSdk 32
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -32,36 +28,23 @@ android {
             withSourcesJar()
             withJavadocJar()
         }
-
-        multipleVariants {
-            withSourcesJar()
-            withJavadocJar()
-            allVariants()
-        }
     }
 }
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.4.0'
-
 }
 
-dependencies {
-
-    implementation 'androidx.annotation:annotation:1.4.0'
-}
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.samruddhi2503'
+                groupId = 'com.samrudhhi2503'
                 artifactId = 'CircleImageView'
-                version = 'android.defaultConfig.versionName'
-//                version = '1.0.samu' // specify the version here
+                version = '1.0.0' // specify the version here
 
                 pom {
-
                     licenses {
                         license {
                             name = 'The Apache License, Version 2.0'
@@ -75,10 +58,8 @@ afterEvaluate {
                             email = 'samruddhipawar6659@gmail.com'
                         }
                     }
-
                 }
             }
         }
     }
-
 }
