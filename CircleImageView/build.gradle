@@ -22,44 +22,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.4.0'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.samrudhhi2503'
-                artifactId = 'CircleImageView'
-                version = '1.0.0' // specify the version here
-
-                pom {
-                    licenses {
-                        license {
-                            name = 'The Apache License, Version 2.0'
-                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = 'samruddhi'
-                            name = 'Samrudhhi'
-                            email = 'samruddhipawar6659@gmail.com'
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
